@@ -1,5 +1,5 @@
 import * as dao from './users-dao.js'
-import {findByUsername} from "./users-dao.js";
+import {findByCredentials, findByUsername} from "./users-dao.js";
 
 let currentUser = null
 
@@ -21,8 +21,19 @@ const UsersController = (app) => {
         currentUser = actualUser
         res.json(actualUser)
     }
+    const login = async (req, res) => {
+        const credentials = req.body
+        const existingUser = await findByCredentials(credentials.username, credentials.password)
+        if (!existingUser) {
+            res.sendStatus(403)
+            return
+        }
+        currentUser = existingUser
+        res.json(existingUser)
+    }
     app.post('/users', createUser)
     app.post('/register', register)
+    app.post('/login', login)
 
 }
 
