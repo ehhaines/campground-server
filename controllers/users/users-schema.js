@@ -5,9 +5,7 @@ const usersSchema = mongoose.Schema({
     password: {type: String, required: true},
     firstName: String,
     lastName: String,
-    email: String,
-    type: {type: String, enum: ['ADMIN', 'TYPE1', 'TYPE2']},
-    married: Boolean
+    email: String
 }, {collection: 'users'})
 
 export default usersSchema
