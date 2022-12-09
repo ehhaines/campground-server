@@ -9,6 +9,12 @@ const UsersController = (app) => {
         const actualUser = await dao.createUser(user)
         res.json(actualUser)
     }
+    const updateUser = async (req, res) => {
+        const uid = req.params.uid
+        const updates = req.body
+        const status = await dao.updateUser(uid,  updates)
+        res.json(status)
+    }
     const register = async (req, res) => {
         const user = req.body
         const existingUser = await findByUsername(user.username)
@@ -25,15 +31,26 @@ const UsersController = (app) => {
         const credentials = req.body
         const existingUser = await findByCredentials(credentials.username, credentials.password)
         if (!existingUser) {
+            console.log("login: username and password problem")
             res.sendStatus(403)
             return
         }
         currentUser = existingUser
         res.json(existingUser)
     }
+    const profile = async (req, res) => {
+        if (currentUser) {
+            res.json(currentUser)
+            return
+        }
+        res.sendStatus(403)
+    }
+    app.put('/users/:uid', updateUser)
+
     app.post('/users', createUser)
     app.post('/register', register)
     app.post('/login', login)
+    app.post('/profile', profile)
 
 }
 
