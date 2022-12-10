@@ -15,7 +15,7 @@ const ReviewsController = (app) => {
   }
 
   app.get("/reviews/:park", findReviewsByPark);
-  app.post("/reviews/:park", createReview);
+  app.post("/reviews", createReview);
 }
 
 export default ReviewsController;
