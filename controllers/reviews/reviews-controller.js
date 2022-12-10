@@ -14,8 +14,15 @@ const ReviewsController = (app) => {
     res.send(actualReview);
   }
 
+  const deleteReview = async (req, res) => {
+    const review = req.body;
+    await reviewsDao.deleteReview(review._id);
+    res.send(review);
+  }
+
   app.get("/reviews/:park", findReviewsByPark);
   app.post("/reviews", createReview);
+  app.delete("/reviews", deleteReview);
 }
 
 export default ReviewsController;
