@@ -10,6 +10,7 @@ const ReviewsController = (app) => {
 
   const createReview = async (req, res) => {
     const newReview = req.body;
+    console.log(newReview);
     const actualReview = await reviewsDao.createReview(newReview);
     res.send(actualReview);
   }
