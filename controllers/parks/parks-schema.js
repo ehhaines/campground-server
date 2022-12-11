@@ -10,6 +10,6 @@ const parksSchema = mongoose.Schema({
   state: String,
   statesSpanned: String,
   image: String
-});
+}, {collection: "parks"});
 
 export default parksSchema;
