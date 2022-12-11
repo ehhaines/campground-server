@@ -20,9 +20,16 @@ const ReviewsController = (app) => {
     res.send(review);
   }
 
+  const updateReview = async (req, res) => {
+    const updatedReview = req.body;
+    await reviewsDao.updateReview(updatedReview._id, updatedReview.review, updatedReview.rating, updatedReview.dateEdited);
+    res.send(updatedReview);
+  }
+
   app.get("/reviews/:park", findReviewsByPark);
   app.post("/reviews", createReview);
   app.delete("/reviews", deleteReview);
+  app.put("/reviews", updateReview);
 }
 
 export default ReviewsController;
