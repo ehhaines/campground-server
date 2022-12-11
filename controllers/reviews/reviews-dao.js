@@ -13,3 +13,8 @@ export const createReview = async (newReview) => {
 export const deleteReview = async (revID) => {
   await reviewsModel.deleteOne({_id: revID});
 }
+
+export const updateReview = async (revID, newReview, newRating, dateEdited) => {
+  await reviewsModel.updateOne({_id: revID}, {$set: {review: newReview, rating: newRating, dateEdited: dateEdited}});
+  return;
+}

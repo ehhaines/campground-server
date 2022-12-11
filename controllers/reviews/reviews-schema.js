@@ -5,6 +5,7 @@ const reviewsSchema = mongoose.Schema({
   parkCode: {type: String, required: true},
   rating: Number,
   dateReviewed: String,
+  dateEdited: String,
   review: String
 }, {collection: "reviews"});
 
