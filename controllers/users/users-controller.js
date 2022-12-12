@@ -13,6 +13,7 @@ const UsersController = (app) => {
         const uid = req.params.uid
         const updates = req.body
         const status = await dao.updateUser(uid,  updates)
+        console.log("update user: " + uid + JSON.stringify(updates))
         res.json(status)
     }
     const register = async (req, res) => {
@@ -45,12 +46,17 @@ const UsersController = (app) => {
         }
         res.sendStatus(403)
     }
+    const logout = (req, res) => {
+        currentUser = null
+        res.sendStatus(200)
+    }
     app.put('/users/:uid', updateUser)
 
     app.post('/users', createUser)
     app.post('/register', register)
     app.post('/login', login)
     app.post('/profile', profile)
+    app.post('/logout', logout)
 
 }
 

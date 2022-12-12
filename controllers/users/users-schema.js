@@ -5,7 +5,12 @@ const usersSchema = mongoose.Schema({
     password: {type: String, required: true},
     firstName: String,
     lastName: String,
-    email: String
+    email: String,
+    location: {type: String, default: ''},
+    phone: {type: String, default: '0000000000'},
+    // dateOfBirth: {type: Date, default: '01/01/2000'},
+    friendsList: {type: String}
+
 }, {collection: 'users'})
 
 export default usersSchema
