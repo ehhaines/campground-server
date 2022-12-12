@@ -50,7 +50,15 @@ const UsersController = (app) => {
         currentUser = null
         res.sendStatus(200)
     }
+
+    const getUserByUsername = async (req, res) => {
+        const username = req.params.username;
+        const actualUser = await dao.findAnonUser(username);
+        res.json(actualUser);
+    }
+
     app.put('/users/:uid', updateUser)
+    app.get('/users/:username', getUserByUsername)
 
     app.post('/users', createUser)
     app.post('/register', register)

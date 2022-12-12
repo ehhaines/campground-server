@@ -13,3 +13,6 @@ export const findByCredentials = (username, password) =>
 export const updateUser = (uid, userUpdates) =>
     usersModel.updateOne({_id: uid},
         {$set: userUpdates})
+
+export const findAnonUser = (username) =>
+        usersModel.find({username: username});
