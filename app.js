@@ -5,6 +5,7 @@ import ParksController from "./controllers/parks/parks-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
 import GreetingController from "./greeting.js";
 import ReviewsController from "./controllers/reviews/reviews-controller.js";
+import FriendshipsController from "./controllers/friendships/friendships-controller.js";
 
 // mongoose.connect('mongodb://localhost:27017/final').then(r => console.log("connect MongoDB"))
 mongoose.connect('mongodb://localhost:27017/campground');
@@ -17,5 +18,6 @@ GreetingController(app);
 ParksController(app);
 ReviewsController(app);
 UsersController(app);
+FriendshipsController
 
 app.listen(process.env.PORT || 4000);

@@ -6,10 +6,10 @@ const usersSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
+    bio: String,
     location: {type: String, default: ''},
     phone: {type: String, default: '0000000000'},
-    // dateOfBirth: {type: Date, default: '01/01/2000'},
-    friendsList: {type: String}
+    role: {type: String, enum: ['USER', 'RANGER', 'ADMIN']}
 
 }, {collection: 'users'})
 
