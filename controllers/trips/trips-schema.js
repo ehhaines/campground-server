@@ -9,6 +9,6 @@ const tripsSchema = mongoose.Schema({
   endDate: String,
   notes: String,
   isCompleted: Boolean
-});
+}, {collection: "trips"});
 
 export default tripsSchema;
