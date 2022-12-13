@@ -8,6 +8,7 @@ import ReviewsController from "./controllers/reviews/reviews-controller.js";
 import FollowsController from "./controllers/follows/follows-controller.js";
 import SessionController from "./session-controller.js";
 import session from "express-session";
+import TripsController from "./controllers/trips/trips-controller.js";
 
 const options = {
   useNewUrlParser: true,
@@ -43,6 +44,7 @@ ParksController(app);
 ReviewsController(app);
 UsersController(app);
 FollowsController(app);
+TripsController(app);
 SessionController(app);
 
 app.listen(process.env.PORT || 4000);

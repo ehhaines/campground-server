@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import tripsSchema from "./trips-schema";
+import tripsSchema from "./trips-schema.js";
 
 const tripsModel = mongoose.model(
   "TripsModel", tripsSchema

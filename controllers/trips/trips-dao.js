@@ -1,4 +1,4 @@
-import tripsModel from "./trips-model";
+import tripsModel from "./trips-model.js";
 
 export const createTrip = (trip) =>
   tripsModel.create(trip);
@@ -9,4 +9,5 @@ export const completeTrip = (tripID) =>
 export const deleteTrip = (tripID) =>
   tripsModel.deleteOne({_id: tripID});
 
-// TODO: Implement find trips by user
+export const findAllTrips = () => 
+  tripsModel.find();
