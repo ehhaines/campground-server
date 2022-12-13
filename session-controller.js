@@ -15,4 +15,4 @@ const SessionController = (app) => {
   app.get('/session/get/:name', getSession)
 }
 
-export default SessionController;
+export default SessionController
