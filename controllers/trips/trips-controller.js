@@ -21,12 +21,12 @@ const TripsController = (app) => {
   const deleteTrip = async (req, res) => {
     const tripID = req.params.tripID;
     await tripsDao.deleteTrip(tripID);
-    return tripID;
+    res.send(tripID);
   }
 
   const findAllTrips = async (req, res) => {
-    const allTrips = tripsDao.findAllTrips();
-    res.json(allTrips);
+    const allTrips = await tripsDao.findAllTrips();
+    res.send(allTrips);
   }
 
   app.get('/trips', findAllTrips);

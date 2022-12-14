@@ -9,6 +9,8 @@ import FriendshipsController from "./controllers/friendships/friendships-control
 import SessionController from "./session-controller.js";
 import session from "express-session";
 import TripsController from "./controllers/trips/trips-controller.js";
+import moderationsController from "./controllers/moderations/moderations_controller.js";
+import AlertsController from "./controllers/alerts/alerts-controller.js";
 
 const options = {
   useNewUrlParser: true,
@@ -44,6 +46,8 @@ ParksController(app);
 ReviewsController(app);
 UsersController(app);
 TripsController(app);
+moderationsController(app);
+AlertsController(app);
 SessionController(app);
 
 app.listen(process.env.PORT || 4000);
