@@ -16,3 +16,9 @@ export const updateUser = (uid, userUpdates) =>
 
 export const findAnonUser = (username) =>
         usersModel.find({username: username});
+
+export const ban = (username) =>
+        usersModel.updateOne({username: username}, {$set: {isBanned: true}});
+
+export const unban = (username) =>
+        usersModel.updateOne({username: username}, {$set: {isBanned: false}});

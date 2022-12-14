@@ -57,6 +57,19 @@ const UsersController = (app) => {
         res.json(actualUser);
     }
 
+    const ban = async (req, res) => {
+        const username = req.params.username;
+        console.log(username);
+        const status = await dao.ban(username);
+        res.send(status);
+    }
+
+    const unban = async (req, res) => {
+        const username = req.params.username;
+        const status = await dao.unban(username);
+        res.send(status);
+    }
+
     app.put('/users/:uid', updateUser)
     app.get('/users/:username', getUserByUsername)
 
@@ -65,6 +78,9 @@ const UsersController = (app) => {
     app.post('/login', login)
     app.post('/profile', profile)
     app.post('/logout', logout)
+
+    app.put('/ban/:username', ban);
+    app.put('/unban/:username', unban);
 
 }
 
