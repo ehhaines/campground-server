@@ -5,7 +5,7 @@ import ParksController from "./controllers/parks/parks-controller.js";
 import UsersController from "./controllers/users/users-controller.js";
 import GreetingController from "./greeting.js";
 import ReviewsController from "./controllers/reviews/reviews-controller.js";
-import FriendshipsController from "./controllers/friendships/friendships-controller.js";
+import FollowsController from "./controllers/follows/follows-controller.js";
 import SessionController from "./session-controller.js";
 import session from "express-session";
 import TripsController from "./controllers/trips/trips-controller.js";
@@ -48,6 +48,7 @@ UsersController(app);
 TripsController(app);
 moderationsController(app);
 AlertsController(app);
+FollowsController(app);
 SessionController(app);
 
 app.listen(process.env.PORT || 4000);

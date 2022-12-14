@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const moderationsSchema = mongoose.Schema({
-  ranger: {type: mongoose.Schema.Types.ObjectId, ref: "UserModel"},
+  ranger: String,
   parkCode: String
-});
+}, {collection: "moderations"});
 
 export default moderationsSchema;
