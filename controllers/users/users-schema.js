@@ -10,7 +10,7 @@ const usersSchema = mongoose.Schema({
     location: {type: String, default: ''},
     phone: {type: String, default: '0000000000'},
     isBanned: {type: Boolean, default: false},
-    role: {type: String, enum: ['USER', 'RANGER', 'ADMIN']}
+    type: {type: String, enum: ['USER', 'RANGER', 'ADMIN'], default: 'USER'}
 }, {collection: 'users'})
 
 export default usersSchema

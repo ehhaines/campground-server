@@ -8,3 +8,6 @@ export const findModerationsByUser = ranger =>
 
 export const createModeration = (moderation) =>
   moderationsModel.create(moderation);
+
+export const unMod = (username) =>
+  moderationsModel.deleteOne({ranger: username});

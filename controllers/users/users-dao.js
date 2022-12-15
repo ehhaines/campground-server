@@ -22,3 +22,9 @@ export const ban = (username) =>
 
 export const unban = (username) =>
         usersModel.updateOne({username: username}, {$set: {isBanned: false}});
+
+export const makeRanger = (username) =>
+        usersModel.updateOne({username: username}, {$set: {type: "RANGER"}});
+
+export const demoteToUser = (username) =>
+        usersModel.updateOne({username: username}, {$set: {type: "USER"}});

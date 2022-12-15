@@ -16,13 +16,20 @@ const moderationsController = (app) => {
 
   const createModeration = async (req, res) => {
     const moderation = req.body;
-    const response = await moderationsDao.createModeration(moderation);
-    res.json(response);
+    const status = await moderationsDao.createModeration(moderation);
+    res.send(status);
+  }
+
+  const unMod = async (req, res) => {
+    const username = req.params.username;
+    const status = await moderationsDao.unMod(username);
+    res.send(status);
   }
 
   app.get("/moderations/parks/:park", findModerationsByPark);
   app.get("/moderations/users/:user", findModerationsByUser);
   app.post("/moderations", createModeration);
+  app.delete("/moderations/:username", unMod);
 }
 
 export default moderationsController;

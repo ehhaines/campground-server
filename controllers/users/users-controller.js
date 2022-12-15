@@ -70,6 +70,20 @@ const UsersController = (app) => {
         res.send(status);
     }
 
+    const makeRanger = async (req, res) => {
+        const username = req.params.username;
+        const status = await dao.makeRanger(username);
+        res.send(status);
+    }
+
+    const demoteToUser = async (req, res) => {
+        const username = req.params.username;
+        console.log(username);
+        const status = await dao.demoteToUser(username);
+        console.log(status);
+        res.send(status);
+    }
+
     app.put('/users/:uid', updateUser)
     app.get('/users/:username', getUserByUsername)
 
@@ -81,6 +95,8 @@ const UsersController = (app) => {
 
     app.put('/ban/:username', ban);
     app.put('/unban/:username', unban);
+    app.put('/make-ranger/:username', makeRanger);
+    app.put('/make-user/:username', demoteToUser);
 
 }
 
