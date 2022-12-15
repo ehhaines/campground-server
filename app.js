@@ -22,8 +22,12 @@ const options = {
   family: 4
 }
 
+// mongodb+srv://evan:supersecretpassword@cluster0.lgipvkj.mongodb.net/?retryWrites=true&w=majority
 // mongoose.connect('mongodb://localhost:27017/final').then(r => console.log("connect MongoDB"))
-mongoose.connect('mongodb://localhost:27017/campground', options);
+
+// const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/campground'
+const CONNECTION_STRING = "mongodb+srv://evan:supersecretpassword@cluster0.lgipvkj.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(CONNECTION_STRING, options);
 
 const app = express();
 

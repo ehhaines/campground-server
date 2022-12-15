@@ -8,7 +8,6 @@ const usersSchema = mongoose.Schema({
     email: String,
     bio: String,
     location: {type: String, default: ''},
-    phone: {type: String, default: '0000000000'},
     isBanned: {type: Boolean, default: false},
     type: {type: String, enum: ['USER', 'RANGER', 'ADMIN'], default: 'USER'}
 }, {collection: 'users'})
